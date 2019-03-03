@@ -6,6 +6,11 @@
  */
 function greet(name) {
   // Your code here
+  if(name){
+    console.log(`Hello ${name}`);
+  }else{
+    console.log('Hello');
+  }
 }
 
 /**
@@ -15,6 +20,11 @@ function greet(name) {
  */
 function isOdd(n) {
   // Your code here
+  if(Math.abs(n % 2) == 1){
+    return true
+  }else{
+    return false
+  }
 }
 
 /**
@@ -30,6 +40,7 @@ function isOdd(n) {
  */
 function oddsSmallerThan(n) {
   // Your code here
+  return Math.floor(n/2);
 }
 
 /**
@@ -44,6 +55,13 @@ function oddsSmallerThan(n) {
  */
 function squareOrDouble(n) {
   // Your code here
+  //console.log(`My code${101 % 2}`);
+
+  if (n % 2 !== 0){
+    return n*n;
+  }else{
+    return 2 * n;
+  }
 }
 
 /**
@@ -65,7 +83,32 @@ function squareOrDouble(n) {
 function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
 
-  // Your code here
+  // Your code here 
+  let year = birthDate.slice(0,4);
+  let month = birthDate.slice(4,6);
+  let day = birthDate.slice(6,8);
+
+  let newDate = `${year}-${month}-${day}`;
+  console.log(`Got the new Date: ${newDate}`);
+
+  let finalDate = new Date(newDate);
+  console.log(`Final Date is: ${finalDate}`);
+
+  let dInMS = finalDate.getTime();
+  console.log(`Date in milliseconds is: ${dInMS}`);
+
+  let nowMs =  Date.now();
+  console.log(`Get the Time now in milliseconds: ${nowMs}`);
+
+  let diff = nowMs - dInMS;
+  console.log(`Get the Difrence between now and the date given in milliseconds: ${diff}`);
+
+  let age = diff/_MS_PER_YEAR;
+  console.log(`Age in milliseconds: ${age}`);
+
+  console.log(`return the closest number of age ${Math.floor(age)}`);
+  return Math.floor(age);
+  
 }
 
 module.exports = {
